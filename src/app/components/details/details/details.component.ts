@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HouseService } from '../../../services/house.service';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  public data: any = [];
+  errorMessage: string;
+  id = '1';
 
-  ngOnInit(): void {
+  constructor(private dataService: HouseService) {}
+
+  ngOnInit() {
+    this.dataService.getHouseDetail(this.id).subscribe({
+      next: data => (this.data = data, console.log(this.data)),
+      error: err => (this.errorMessage = err)
+    });
   }
-
 }

@@ -10,13 +10,23 @@ export class ListComponent implements OnInit {
 
   public data: any = [];
   errorMessage: string;
+  query: string;
+
+  getDetails(i) {
+    console.log(i +1);
+  }
+
+  getIndex() {
+    this.data.map((item) => console.log(item))
+  }
 
   constructor(private dataService: HouseService) {}
 
   ngOnInit() {
-    this.dataService.getPostsResponse().subscribe({
+    this.dataService.getHouseResponse().subscribe({
       next: data => (this.data = data),
       error: err => (this.errorMessage = err)
     });
+    this.getIndex();
   }
 }
