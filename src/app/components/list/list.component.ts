@@ -8,15 +8,9 @@ import { HouseService } from '../../services/house.service'
 })
 export class ListComponent implements OnInit {
 
-  @Input() id;
-
   public data: any = [];
   errorMessage: string;
   query: string;
-
-  getDetails(i) {
-    console.log(i +1);
-  }
 
   constructor(private dataService: HouseService) {}
 
