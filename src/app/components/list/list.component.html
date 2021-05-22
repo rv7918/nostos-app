@@ -1,1 +1,8 @@
-<p>list works!</p>
+<div>
+	<div *ngFor="let item of data" style="margin-bottom: 25px;">
+		<p style="font-size: 20px; font-weight: bold;">{{item.name}}</p>
+		<span>{{item.region}}</span><br />
+    <span *ngIf="data.length">{{item.coatOfArms}}</span>
+    <button>View more</button>
+	</div>
+</div>

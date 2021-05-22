@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/house.service'
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  public data: any = [];
+  errorMessage: string;
 
-  ngOnInit(): void {
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.dataService.getPostsResponse().subscribe({
+      next: data => (this.data = data),
+      error: err => (this.errorMessage = err)
+    });
   }
-
 }
