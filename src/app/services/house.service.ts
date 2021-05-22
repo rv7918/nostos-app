@@ -12,7 +12,7 @@ import { House } from "../models/house.model";
   providedIn: "root"
 })
 
-export class DataService {
+export class HouseService {
   baseUrl = "https://anapioficeandfire.com/api/houses/";
 
   constructor(private http: HttpClient) {}

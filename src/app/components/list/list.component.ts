@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/house.service'
+import { HouseService } from '../../services/house.service'
 
 @Component({
   selector: 'app-list',
@@ -11,7 +11,7 @@ export class ListComponent implements OnInit {
   public data: any = [];
   errorMessage: string;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: HouseService) {}
 
   ngOnInit() {
     this.dataService.getPostsResponse().subscribe({
