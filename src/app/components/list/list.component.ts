@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HouseService } from '../../services/house.service'
 
 @Component({
@@ -8,16 +8,14 @@ import { HouseService } from '../../services/house.service'
 })
 export class ListComponent implements OnInit {
 
+  @Input() id;
+
   public data: any = [];
   errorMessage: string;
   query: string;
 
   getDetails(i) {
     console.log(i +1);
-  }
-
-  getIndex() {
-    this.data.map((item) => console.log(item))
   }
 
   constructor(private dataService: HouseService) {}
@@ -27,6 +25,5 @@ export class ListComponent implements OnInit {
       next: data => (this.data = data),
       error: err => (this.errorMessage = err)
     });
-    this.getIndex();
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HouseService } from '../../../services/house.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,12 +8,12 @@ import { HouseService } from '../../../services/house.service';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-
+  
   public data: any = [];
   errorMessage: string;
-  id = '1';
+  id = this.route.snapshot.params['i'];
 
-  constructor(private dataService: HouseService) {}
+  constructor(private dataService: HouseService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.dataService.getHouseDetail(this.id).subscribe({
