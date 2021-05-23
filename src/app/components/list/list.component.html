@@ -6,12 +6,18 @@
     </ng-container>
 
     <ng-container *ngIf="data">
-        <div *ngFor="let item of data; let i = index;" style="margin-bottom: 25px;">
-            <p style="font-size: 20px; font-weight: bold;">{{item.name}}</p>
-            <span>{{item.region}}</span><br />
-            <span>{{item.coatOfArms}}</span>
-
-            <button [routerLink]="['/details', i + 1]">View</button>
+        <div *ngFor="let item of data; let i = index;" class="mb-3">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5>{{item.name}}</h5>
+                    <span>Region: {{item.region}}</span><br />
+                    <span>Coat of Arms: {{item.coatOfArms}}</span>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary float-right mt-4" [routerLink]="['/details', i + 1]">View</button>
+                </div>
+            </div>
+            <hr />
         </div>
     </ng-container>
 
