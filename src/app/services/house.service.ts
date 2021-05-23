@@ -14,18 +14,9 @@ import { House } from "../models/house.model";
 
 export class HouseService {
 
-  baseUrl = "https://anapioficeandfire.com/api/houses/";
-
   pageUrl = "https://anapioficeandfire.com/api/houses"
 
   constructor(private http: HttpClient) {}
-
-  getHouseResponse(): Observable<House> {
-    return this.http.get<House>(this.baseUrl).pipe(
-      tap(data => data),
-      catchError(this.handleError)
-    );
-  }
 
   getPagedResponse(): Observable<House> {
     return this.http.get<House>(this.pageUrl + '?page=1&pageSize=10').pipe(
@@ -42,7 +33,7 @@ export class HouseService {
   }
 
   getHouseDetail(id): Observable<House> {
-    return this.http.get<House>(this.baseUrl + id).pipe(
+    return this.http.get<House>(this.pageUrl + '/' +  id).pipe(
       tap(data => data),
       catchError(this.handleError)
     );
