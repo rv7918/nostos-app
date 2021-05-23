@@ -10,8 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailsComponent implements OnInit {
   
   public data: any = [];
-  errorMessage: string;
-  id = this.route.snapshot.params['i'];
+  private errorMessage: string;
+  public id = this.route.snapshot.params['i'];
 
   constructor(private dataService: HouseService, private route: ActivatedRoute) {}
 

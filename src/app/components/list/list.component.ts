@@ -8,16 +8,26 @@ import { HouseService } from '../../services/house.service'
 })
 export class ListComponent implements OnInit {
 
+  public loading: boolean;
+
   public data: any = [];
-  errorMessage: string;
-  query: string;
+  public errorMessage: string;
 
   constructor(private dataService: HouseService) {}
 
-  ngOnInit() {
-    this.dataService.getHouseResponse().subscribe({
-      next: data => (this.data = data),
-      error: err => (this.errorMessage = err)
+  getHouses() {
+    this.loading = true;
+    this.dataService.getHouseResponse().subscribe((data) => {
+      this.data = data;
+      this.loading = false;
     });
+  }
+
+  ngOnInit() {
+    // this.dataService.getHouseResponse().subscribe({
+    //   next: data => (this.data = data),
+    //   error: err => (this.errorMessage = err)
+    // });
+    this.getHouses();
   }
 }

@@ -1,4 +1,9 @@
 <div>
+    <ng-container *ngIf="loading">
+        <div class="column col-12 text-center pt-10 pb-10">
+          <div class="loading loading-lg">Loading ...</div>
+        </div>
+      </ng-container>
     <div *ngFor="let item of data; let i = index;" style="margin-bottom: 25px;">
         <p style="font-size: 20px; font-weight: bold;">{{item.name}}</p>
         <span>{{item.region}}</span><br />
