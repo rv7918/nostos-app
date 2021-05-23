@@ -8,6 +8,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+
+  public loading: boolean;
   
   public data: any = [];
   private errorMessage: string;
@@ -15,10 +17,15 @@ export class DetailsComponent implements OnInit {
 
   constructor(private dataService: HouseService, private route: ActivatedRoute) {}
 
-  ngOnInit() {
-    this.dataService.getHouseDetail(this.id).subscribe({
-      next: data => (this.data = data, console.log(this.data)),
-      error: err => (this.errorMessage = err)
+  getHouseDetails() {
+    this.loading = true;
+    this.dataService.getHouseDetail(this.id).subscribe((data) => {
+      this.data = data;
+      this.loading = false;
     });
+  }
+
+  ngOnInit() {
+    this.getHouseDetails();
   }
 }

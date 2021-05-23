@@ -1,14 +1,22 @@
 <div>
     <ng-container *ngIf="loading">
         <div class="column col-12 text-center pt-10 pb-10">
-          <div class="loading loading-lg">Loading ...</div>
+            <div class="loading loading-lg">Loading ...</div>
         </div>
-      </ng-container>
-    <div *ngFor="let item of data; let i = index;" style="margin-bottom: 25px;">
-        <p style="font-size: 20px; font-weight: bold;">{{item.name}}</p>
-        <span>{{item.region}}</span><br />
-        <span *ngIf="data.length">{{item.coatOfArms}}</span>
+    </ng-container>
 
-        <button [routerLink]="['/details', i + 1]">View</button>
-    </div>
+    <ng-container *ngIf="data">
+        <div *ngFor="let item of data; let i = index;" style="margin-bottom: 25px;">
+            <p style="font-size: 20px; font-weight: bold;">{{item.name}}</p>
+            <span>{{item.region}}</span><br />
+            <span>{{item.coatOfArms}}</span>
+
+            <button [routerLink]="['/details', i + 1]">View</button>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="data.length === 0 || null">
+        <p>There was a no data received!</p>
+    </ng-container>
+
 </div>
