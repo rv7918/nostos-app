@@ -48,10 +48,6 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.dataService.getHouseResponse().subscribe({
-    //   next: data => (this.data = data),
-    //   error: err => (this.errorMessage = err)
-    // });
     this.getHouses();
   }
 }

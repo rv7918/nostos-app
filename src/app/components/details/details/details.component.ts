@@ -12,7 +12,6 @@ export class DetailsComponent implements OnInit {
   public loading: boolean;
   
   public data: any = [];
-  private errorMessage: string;
   public id = this.route.snapshot.params['i'];
 
   constructor(private dataService: HouseService, private route: ActivatedRoute) {}
