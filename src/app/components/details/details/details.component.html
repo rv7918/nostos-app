@@ -4,11 +4,14 @@
             <div class="loading loading-lg">Loading ...</div>
         </div>
     </ng-container>
-    <div style="margin-bottom: 25px;">
+    <div style="margin-bottom: 25px;" *ngIf="data">
         <h3>{{data.name}}</h3>
         <hr />
-        <h5 class="mb-4 mt-4"><strong>Region:</strong> {{data.region}}</h5>
-        <div class="card">
+        <h6 class="mb-4 mt-4"><strong>Region:</strong> {{data.region}}</h6>
+        <div *ngIf="data.titles"><strong>Titles:</strong> {{data.titles}} <span *ngIf="data.titles == ''"> No title information for this house</span></div>
+        <div *ngIf="data.seats"><strong>Seats:</strong> {{data.seats}} <span *ngIf="data.seats == ''"> No seats information for this house</span></div>
+
+        <div class="card mt-5" *ngIf="data.coatOfArms">
             <div class="card-header">
                 <h5>Coat of Arms</h5>
             </div>
