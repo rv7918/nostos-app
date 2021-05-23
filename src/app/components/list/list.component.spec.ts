@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule} from '@angular/common/http/testing';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { ListComponent } from './list.component';
 
 describe('ListComponent', () => {
@@ -9,7 +10,7 @@ describe('ListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ListComponent ],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, NgxPaginationModule]
     })
     .compileComponents();
   }));
