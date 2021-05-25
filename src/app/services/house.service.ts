@@ -25,6 +25,17 @@ export class HouseService {
     );
   }
 
+  // getPromise() {
+  //   let promise = new Promise((resolve, reject) => {
+  //     this.http.get(this.pageUrl + '?page=1&pageSize=10')
+  //       .toPromise()
+  //       .then(
+  //         data => {console.log(data)}
+  //       )
+  //   });
+  //   return promise;
+  // }
+
   getPage(page): Observable<House> {
     return this.http.get<House>(this.pageUrl + `?page=${page}&pageSize=10`).pipe(
       tap(data => data),
