@@ -22,7 +22,18 @@ describe('DetailsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Back button to be in the view with the text "back" ', () => {
+    let button= fixture.nativeElement.querySelector('.btn');
+    expect(button.textContent).toEqual('Back');
+  });
+
+  it('Loading ... text to be present" ', () => {
+    let loading= fixture.nativeElement.querySelector('.loading');
+    expect(loading.textContent).toEqual('Loading ...');
+  });
+
 });

@@ -7,7 +7,7 @@
 
     <ng-container *ngIf="data">
         <div *ngFor="let item of data | paginate: { itemsPerPage: itemsPerPage , currentPage: p, totalItems: totalItems }; let i = index"
-            class="mb-3">
+            class="mb-3 list-item">
             <div class="row">
                 <div class="col-md-11">
                     <h5>{{item.name}}</h5>

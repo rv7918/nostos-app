@@ -16,7 +16,7 @@ describe('HouseService', () => {
 
   });
 
-  it('should be created', () => {
+  it('should be created to be truthy', () => {
     expect(serviceHouse).toBeTruthy();
   });
 
